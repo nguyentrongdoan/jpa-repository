@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Province</title>
+</head>
+<body>
+<h1>Edit province</h1>
+<p>
+    <a href="/provinces">Province list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"/>
+</th:block>
+<form th:action="@{/edit-province}" th:object="${province}" method="post">
+    <label>
+        <input th:type="hidden" name="id" th:field="*{id}">
+    </label>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><label>
+                <input type="text" th:field="*{name}">
+            </label></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Update province"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
